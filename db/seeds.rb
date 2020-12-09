@@ -24,13 +24,7 @@ casa2 = Place.create!(address: "SQSW 504 Bloco F")
 
 puts "2 places created"
 
-visit1 = Visit.new(state: 1, focus_quantity: 3, eliminated: true, dengue_last_3m: 0,
-                   observations: "casinha do cachorro")
-visit1.user = bruna
-visit1.place = casa1
-visit1.save
-
-visit2 = Visit.create!(state: 2, focus_quantity: 3, eliminated: true, dengue_last_3m: 0,
-                       observations: "caixa dagua", user: rafa, place: casa2)
+Visit.create!(state: 2, observations: "caixa dagua", user: rafa, place: casa2)
+Visit.create!(state: 1, focus_quantity: 1, eliminated: true, dengue_last_3m: false, observations: 'teste', user: rafa, place: casa1)
 
 puts "2 visits created"
