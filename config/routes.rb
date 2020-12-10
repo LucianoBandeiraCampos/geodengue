@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
-  resources :places, only: %i[new create] do
+  resources :places, only: %i[index new create] do
     resources :visits, only: %i[new create]
   end
 
