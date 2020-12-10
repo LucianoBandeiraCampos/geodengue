@@ -11,7 +11,6 @@ class VisitsController < ApplicationController
     @visit = Visit.new
   end
 
-  # index new create show
   def create
     @visit = Visit.new(visit_params)
     if @visit.save

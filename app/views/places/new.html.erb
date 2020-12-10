@@ -1,0 +1,10 @@
+<h1>VIEW PARA INSERIR UM NOVO PLACE</h1>
+
+<%= simple_form_for(@place) do |f| %>
+  <%= f.input :address, label: "Endereço" %>
+  <div class="row ">
+    <div class="col col-12 col-sm-4 d-flex justify-content-center">
+      <%= f.submit 'Submit', class: "btn btn-primary", id: "sweet-alert-bike-success" %>
+    </div>
+  </div>
+<% end %>
