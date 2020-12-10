@@ -9,10 +9,14 @@ class VisitsController < ApplicationController
 
   def new
     @visit = Visit.new
+    @place = Place.find(params[:place_id])
   end
 
   def create
     @visit = Visit.new(visit_params)
+    @place = Place.find(params[:place_id])
+    @visit.place = @place
+    @visit.user = current_user
     if @visit.save
       redirect_to visit_path(@visit)
     else
