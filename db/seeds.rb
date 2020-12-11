@@ -21,10 +21,13 @@ puts "4 users created"
 
 casa1 = Place.create!(address: "SQSW 104 Bloco K")
 casa2 = Place.create!(address: "SQSW 504 Bloco F")
+casa3 = Place.create!(address: "Rua Presidente Tancredo Neves, 21 Viçosa, MG")
 
-puts "2 places created"
+puts "3 places created"
 
 Visit.create!(state: 2, observations: "caixa dagua", user: rafa, place: casa2)
-Visit.create!(state: 1, focus_quantity: 1, eliminated: true, dengue_last_3m: false, observations: 'teste', user: rafa, place: casa1)
+Visit.create!(state: 1, focus_quantity: 1, eliminated: true, dengue_last_3m: false, observations: 'pneus no quintal', user: rafa, place: casa1)
+Visit.create!(state: 0, observations: "retornar posteriormente", user: rafa, place: casa3)
+Visit.create!(state: 1, focus_quantity: 0, eliminated: false, dengue_last_3m: false, observations: "tudo ok", user: rafa, place: casa3)
 
-puts "2 visits created"
+puts "4 visits created"
