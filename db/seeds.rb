@@ -19,15 +19,43 @@ luciano = User.create!(email: "luciano@gmail.com", password: 123_456)
 
 puts "4 users created"
 
-casa1 = Place.create!(address: "SQSW 104 Bloco K")
-casa2 = Place.create!(address: "SQSW 504 Bloco F")
-casa3 = Place.create!(address: "Rua Presidente Tancredo Neves, 21 Viçosa, MG")
+# casa1 = Place.create!(address: "SQSW 104 Bloco K")
+# casa2 = Place.create!(address: "SQSW 504 Bloco F")
+# casa3 = Place.create!(address: "Rua Presidente Tancredo Neves, 21 Viçosa, MG")
 
-puts "3 places created"
+end1 = Place.create!(address: "Rua Quintino Bocaiúva 341, Campo Grande, Mato Grosso do Sul, Brasil")
+end2 = Place.create!(address: "Rua Quintino Bocaiúva 443, Campo Grande, Mato Grosso do Sul, Brasil")
+# end3 = Place.create!(address: "Rua Quintino Bocaiúva 500, Campo Grande, Mato Grosso do Sul, Brasil")
+# end4 = Place.create!(address: "Rua Quintino Bocaiúva 674, Campo Grande, Mato Grosso do Sul, Brasil")
+# end5 = Place.create!(address: "Rua Quintino Bocaiúva 840, Campo Grande, Mato Grosso do Sul, Brasil")
+# end6 = Place.create!(address: "Rua Paulo Tognini 299, Campo Grande, Mato Grosso do Sul, Brasil")
+# end7 = Place.create!(address: "Rua Paulo Tognini 312, Campo Grande, Mato Grosso do Sul, Brasil")
+# end8 = Place.create!(address: "Rua Paulo Tognini 429, Campo Grande, Mato Grosso do Sul, Brasil")
+# end9 = Place.create!(address: "Rua Paulo Tognini 583, Campo Grande, Mato Grosso do Sul, Brasil")
+# end10 = Place.create!(address: "Rua Ataulfo Alves 74, Campo Grande, Mato Grosso do Sul, Brasil")
+# end11 = Place.create!(address: "Rua Ataulfo Alves 73, Campo Grande, Mato Grosso do Sul, Brasil")
+# end12 = Place.create!(address: "Travessa Batatais 81, Campo Grande, Mato Grosso do Sul, Brasil")
+# end13 = Place.create!(address: "Rua Herbert Moses 92, Campo Grande, Mato Grosso do Sul, Brasil")
+# end14 = Place.create!(address: "Rua Herbert Moses 225, Campo Grande, Mato Grosso do Sul, Brasil")
+# end15 = Place.create!(address: "Rua Herbert Moses 389, Campo Grande, Mato Grosso do Sul, Brasil")
+# end16 = Place.create!(address: "Rua Herbert Moses 453, Campo Grande, Mato Grosso do Sul, Brasil")
+# end17 = Place.create!(address: "Rua Herbert Moses 495, Campo Grande, Mato Grosso do Sul, Brasil")
+# end18 = Place.create!(address: "Rua Herbert Moses 587, Campo Grande, Mato Grosso do Sul, Brasil")
+# end19 = Place.create!(address: "Rua Maragojipe 55, Campo Grande, Mato Grosso do Sul, Brasil")
+# end20 = Place.create!(address: "Rua Maragojipe 147, Campo Grande, Mato Grosso do Sul, Brasil")
 
-Visit.create!(state: 2, observations: "caixa dagua", user: rafa, place: casa2)
-Visit.create!(state: 1, focus_quantity: 1, eliminated: true, dengue_last_3m: false, observations: 'pneus no quintal', user: rafa, place: casa1)
-Visit.create!(state: 0, observations: "retornar posteriormente", user: rafa, place: casa3)
-Visit.create!(state: 1, focus_quantity: 0, eliminated: false, dengue_last_3m: false, observations: "tudo ok", user: rafa, place: casa3)
+puts "Places created"
+
+5.times do
+  Visit.create!(state: 0, user: oscar, place: end1)
+end
+
+5.times do
+  Visit.create!(state: 1, user: oscar, place: end2, focus_quantity: 1, eliminated: true, dengue_last_3m: false)
+end
+
+# Visit.create!(state: 1, focus_quantity: 1, eliminated: true, dengue_last_3m: false, observations: 'pneus no quintal', user: rafa, place: casa1)
+# Visit.create!(state: 0, observations: "retornar posteriormente", user: rafa, place: casa3)
+# Visit.create!(state: 1, focus_quantity: 0, eliminated: false, dengue_last_3m: false, observations: "tudo ok", user: rafa, place: casa3)
 
 puts "4 visits created"
