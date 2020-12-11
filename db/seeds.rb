@@ -59,7 +59,10 @@ end
 
 2.times do
   Visit.create!(state: 'visita_realizada', user: oscar, place: end1, focus_quantity: 1, eliminated: true, dengue_last_3m: false)
-  Visit.create!(state: 'visita_realizada', user: oscar, place: end2, focus_quantity: 0, eliminated: true, dengue_last_3m: false)
+  # Visit.create!(state: 'visita_realizada', user: oscar, place: end2, focus_quantity: 0, eliminated: true, dengue_last_3m: false)
+  # LINHA 62 ALTERADA PARA LINHA 65 PARA TESTAR VALIDATES DO ELIMINATED.
+  # LINHA 62 CORRETAMENTE DA ERRO DEVIDO AO VALIDATES NOVO, QUE IMPEDE PREENCHER ELIMINATED EM CASO DE FOCUS_QUANTITY==0.
+  Visit.create!(state: 'visita_realizada', user: oscar, place: end2, focus_quantity: 0, dengue_last_3m: false)
   # Visit.create!(state: 'visita_realizada', user: oscar, place: end6, focus_quantity: 1, eliminated: true, dengue_last_3m: false)
   # Visit.create!(state: 'visita_realizada', user: oscar, place: end7, focus_quantity: 1, eliminated: true, dengue_last_3m: false)
   Visit.create!(state: 'visita_realizada', user: oscar, place: end10, focus_quantity: 1, eliminated: true, dengue_last_3m: false)
