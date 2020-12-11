@@ -1,16 +1,18 @@
-<h1>FORMULÁRIO DA VISITA</h1>
-
-<%= simple_form_for([@place, @visit]) do |f| %>
-
-  <%= f.input :state, label: "Enter the address where it will be available" %>
-  <%= f.input :focus_quantity, label: "Quantos focos?" %>
-  <%= f.input :eliminated, label: "Focos foram eliminados?" %>
-  <%= f.input :dengue_last_3m, label: "Houve diagnóstico de dengue nos últimos três meses?" %>
-  <%= f.input :observations, label: "Observações" %>
-  <div class="row">
-  <div class="row ">
-    <div class="col col-12 col-sm-4 d-flex justify-content-center">
-      <%= f.submit 'Submit', class: "btn btn-primary", id: "sweet-alert-bike-success" %>
-    </div>
+<div class="row mb-2">
+  <div class="col">
+    <h1 class="h2 d-flex justify-content-center border-bottom">Registrar Visita</h1>
   </div>
-<% end %>
+</div>
+
+<div class="row">
+  <div class="col">
+    <%= simple_form_for([@place, @visit]) do |f| %>
+      <%= f.input :state, collection: Visit.states.keys, label: "Desfecho" %>
+      <%= f.input :focus_quantity, label: "Quantos focos?" %>
+      <%= f.input :eliminated, label: "Focos foram eliminados?" %>
+      <%= f.input :dengue_last_3m, label: "Houve diagnóstico de dengue nos últimos três meses?" %>
+      <%= f.input :observations, label: "Observações" %>
+      <%= f.submit 'Submit', class: "btn btn-primary", id: "sweet-alert-bike-success" %>
+    <% end %>
+  </div>
+</div>
