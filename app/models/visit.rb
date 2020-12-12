@@ -10,10 +10,9 @@ class Visit < ApplicationRecord
 
   validates :dengue_last_3m, inclusion: [true, false], if: -> { visita_realizada? }
 
-  # validates :eliminated, inclusion: [true, false], if: -> { preencher_eliminated? }
+  validates :eliminated, inclusion: [true, false], if: -> { preencher_eliminated? }
 
-  # validates :eliminated, exclusion: [true, false], if: -> { fica_sem_preencher_eliminated? }
-  # validates :eliminated, exclusion: { in: [true, false] }, if: -> { fica_sem_preencher_eliminated? }
+  validates :eliminated, exclusion: [true, false], if: -> { fica_sem_preencher_eliminated? }
 
   private
 
