@@ -8,35 +8,35 @@
   <%= simple_form_for([@place, @visit], html: { method: :post, id: "regForm" }) do |f| %>
   <%# <form id="regForm" action=""> %>
   <!-- One "tab" for each step in the form: -->
-  <div class="tab">Endereço:
-    <p>
-      <%= @place.address %>
+  <div class="tab">
+    <p class="mb-4 h5">
+      <%= @place.address.capitalize %>
     </p>
-
-      <%= f.input :state, collection: Visit.states.keys.map { |state| [state.titleize, state] }, label: "Desfecho", input_html: { class: "form-control form-control-lg" } %>
+      <%= f.input :state, collection: Visit.states.keys.map { |state| [state.titleize, state] }, label: "Desfecho", input_html: { class: "h5 form-control form-control-lg" } %>
   </div>
 
-  <div class="tab">
-      <%= f.input :focus_quantity, label: "Quantos focos?" %>
-      <%= f.input :eliminated, as: :boolean, label: "Focos foram eliminados?", class: "d-flex" %>
-      <%= f.input :dengue_last_3m, as: :boolean, label: "Houve diagnóstico de dengue nos últimos três meses?" %>
+  
+  <div class="tab h5">
+    <%= f.input :focus_quantity, label: "Quantos focos?" %>
+    <%= f.input :eliminated, as: :boolean, label: "Focos foram eliminados?" %>
+    <%= f.input :dengue_last_3m, as: :boolean, label: "Houve diagnóstico de dengue nos últimos três meses?" %>
   </div>
 
-  <div class="tab">
+  <div class="tab h5">
       <%= f.input :observations, label: "Observações" %>
-      <%= f.button :button, 'Finalizar', type: :submit, method: "post", class: "btn btn-primary btn-lg" %>
+      <%= f.button :button, 'Finalizar', type: :submit, method: "post", class: "btn btn-primary rounded-pill" %>
   </div>
 
   <div style="overflow:auto;">
-    <div class="btn-group d-flex btn-group-lg btn-group-rounded">
-      <%= f.button :button, "Voltar", id: "prevBtn", class: "btn btn-secondary" %>
-      <%= f.button :button, "Avançar", id: "nextBtn", class: "btn btn-primary" %>
+    <div class="btn-group d-flex">
+      <%= f.button :button, "Voltar", id: "prevBtn", class: "btn btn-secondary rounded-pill m-2" %>
+      <%= f.button :button, "Avançar", id: "nextBtn", class: "btn btn-primary rounded-pill m-2" %>
     </div>
   </div>
 
   <% end %>
   <!-- Circles which indicates the steps of the form: -->
-  <div class="text-center mt-4">
+  <div class="text-center mt-2">
     <span class="step"></span>
     <span class="step"></span>
     <span class="step"></span>
