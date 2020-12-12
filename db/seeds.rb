@@ -47,40 +47,40 @@ end16 = Place.create!(address: "Rua Herbert Moses 453, Campo Grande, Mato Grosso
 puts "Places created"
 
 2.times do
-  Visit.create!(state: 'ausente', user: oscar, place: end1)
-  Visit.create!(state: 'ausente', user: oscar, place: end2)
-  Visit.create!(state: 'ausente', user: oscar, place: end6)
-  Visit.create!(state: 'ausente', user: oscar, place: end7)
-  Visit.create!(state: 'ausente', user: oscar, place: end10)
-  Visit.create!(state: 'ausente', user: oscar, place: end11)
-  Visit.create!(state: 'ausente', user: oscar, place: end15)
-  Visit.create!(state: 'ausente', user: oscar, place: end16)
+  Visit.create!(state: 'ausente', user: oscar, place: end1, data: Time.now)
+  Visit.create!(state: 'ausente', user: oscar, place: end2, data: Time.now)
+  Visit.create!(state: 'ausente', user: oscar, place: end6, data: Time.now)
+  Visit.create!(state: 'ausente', user: oscar, place: end7, data: Time.now)
+  Visit.create!(state: 'ausente', user: oscar, place: end10, data: Time.now)
+  Visit.create!(state: 'ausente', user: oscar, place: end11, data: Time.now)
+  Visit.create!(state: 'ausente', user: oscar, place: end15, data: Time.now)
+  Visit.create!(state: 'ausente', user: oscar, place: end16, data: Time.now)
 end
 
 2.times do
-  Visit.create!(state: 'visita_realizada', user: oscar, place: end1, focus_quantity: 1, eliminated: true, dengue_last_3m: false)
-  Visit.create!(state: 'visita_realizada', user: oscar, place: end2, focus_quantity: 0, eliminated: true, dengue_last_3m: false)
-  # Visit.create!(state: 'visita_realizada', user: oscar, place: end6, focus_quantity: 1, eliminated: true, dengue_last_3m: false)
-  # Visit.create!(state: 'visita_realizada', user: oscar, place: end7, focus_quantity: 1, eliminated: true, dengue_last_3m: false)
-  Visit.create!(state: 'visita_realizada', user: oscar, place: end10, focus_quantity: 1, eliminated: true, dengue_last_3m: false)
-  Visit.create!(state: 'visita_realizada', user: oscar, place: end11, focus_quantity: 1, eliminated: true, dengue_last_3m: false)
-  Visit.create!(state: 'visita_realizada', user: oscar, place: end15, focus_quantity: 1, eliminated: true, dengue_last_3m: false)
-  Visit.create!(state: 'visita_realizada', user: oscar, place: end16, focus_quantity: 1, eliminated: true, dengue_last_3m: false)
+  Visit.create!(state: 'visita_realizada', user: oscar, place: end1, focus_quantity: 1, eliminated: true, dengue_last_3m: false, data: Time.now)
+  Visit.create!(state: 'visita_realizada', user: oscar, place: end2, focus_quantity: 0, eliminated: true, dengue_last_3m: false, data: Time.now)
+  # Visit.create!(state: 'visita_realizada', user: oscar, place: end6, focus_quantity: 1, eliminated: true, dengue_last_3m: false, data: Time.now)
+  # Visit.create!(state: 'visita_realizada', user: oscar, place: end7, focus_quantity: 1, eliminated: true, dengue_last_3m: false, data: Time.now)
+  Visit.create!(state: 'visita_realizada', user: oscar, place: end10, focus_quantity: 1, eliminated: true, dengue_last_3m: false, data: Time.now)
+  Visit.create!(state: 'visita_realizada', user: oscar, place: end11, focus_quantity: 1, eliminated: true, dengue_last_3m: false, data: Time.now)
+  Visit.create!(state: 'visita_realizada', user: oscar, place: end15, focus_quantity: 1, eliminated: true, dengue_last_3m: false, data: Time.now)
+  Visit.create!(state: 'visita_realizada', user: oscar, place: end16, focus_quantity: 1, eliminated: true, dengue_last_3m: false, data: Time.now)
 end
 
 2.times do
-  Visit.create!(state: 'visita_recusada', user: oscar, place: end1)
-  # Visit.create!(state: 'visita_recusada', user: oscar, place: end2)
-  # Visit.create!(state: 'visita_recusada', user: oscar, place: end6)
-  # Visit.create!(state: 'visita_recusada', user: oscar, place: end7)
-  # Visit.create!(state: 'visita_recusada', user: oscar, place: end10)
-  # Visit.create!(state: 'visita_recusada', user: oscar, place: end11)
-  Visit.create!(state: 'visita_recusada', user: oscar, place: end15)
+  Visit.create!(state: 'visita_recusada', user: oscar, place: end1, data: Time.now)
+  # Visit.create!(state: 'visita_recusada', user: oscar, place: end2, data: Time.now)
+  # Visit.create!(state: 'visita_recusada', user: oscar, place: end6, data: Time.now)
+  # Visit.create!(state: 'visita_recusada', user: oscar, place: end7, data: Time.now)
+  # Visit.create!(state: 'visita_recusada', user: oscar, place: end10, data: Time.now)
+  # Visit.create!(state: 'visita_recusada', user: oscar, place: end11, data: Time.now)
+  Visit.create!(state: 'visita_recusada', user: oscar, place: end15, data: Time.now)
   # Visit.create!(state: 'visita_recusada', user: oscar, place: end16)
 end
 
-# Visit.create!(state: 'visita_realizada', focus_quantity: 1, eliminated: true, dengue_last_3m: false, observations: 'pneus no quintal', user: rafa, place: casa1)
-# Visit.create!(state: 'ausente', observations: "retornar posteriormente", user: rafa, place: casa3)
-# Visit.create!(state: 'visita_realizada', focus_quantity: 0, eliminated: false, dengue_last_3m: false, observations: "tudo ok", user: rafa, place: casa3)
+# Visit.create!(state: 'visita_realizada', focus_quantity: 1, eliminated: true, dengue_last_3m: false, observations: 'pneus no quintal', user: rafa, place: casa1, data: Time.now)
+# Visit.create!(state: 'ausente', observations: "retornar posteriormente", user: rafa, place: casa3, data: Time.now)
+# Visit.create!(state: 'visita_realizada', focus_quantity: 0, eliminated: false, dengue_last_3m: false, observations: "tudo ok", user: rafa, place: casa3, data: Time.now)
 
 puts "4 visits created"
