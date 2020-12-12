@@ -7,6 +7,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require('bootstrap-toggle')
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -33,4 +34,8 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initMapbox();
+});
+
+$(document).on('ready page:change', function() {
+  $('input[type="checkbox"].toggle').bootstrapToggle(); // assumes the checkboxes have the class "toggle"
 });
