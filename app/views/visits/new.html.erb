@@ -1,46 +1,46 @@
-<div class="row mb-2">
-  <div class="col">
-    <h1 class="h2 d-flex justify-content-center border-bottom">Registrar Visita</h1>
-  </div>
-</div>
+<div class="visits-layout">
+  <header>
+    <h1 class="h3 pb-2 mb-3 border-bottom">Registrar Visita</h1>
+  </header>
 
-<div class="wizard">
-  <%= simple_form_for([@place, @visit], html: { method: :post, id: "regForm" }) do |f| %>
-  <%# <form id="regForm" action=""> %>
-  <!-- One "tab" for each step in the form: -->
-  <div class="tab">
-    <p class="mb-4 h5">
-      <%= @place.address.capitalize %>
-    </p>
-      <%= f.input :state, collection: Visit.states.keys.map { |state| [state.titleize, state] }, label: "Desfecho", input_html: { class: "h5 form-control form-control-lg" } %>
-  </div>
-
-  
-  <div class="tab h5">
-    <%= f.input :focus_quantity, label: "Quantos focos?" %>
-    <%= f.input :eliminated, as: :boolean, label: "Focos foram eliminados?" %>
-    <%= f.input :dengue_last_3m, as: :boolean, label: "Houve diagnóstico de dengue nos últimos três meses?" %>
-  </div>
-
-  <div class="tab h5">
-      <%= f.input :observations, label: "Observações" %>
-      <%= f.button :button, 'Finalizar', type: :submit, method: "post", class: "btn btn-primary rounded-pill" %>
-  </div>
-
-  <div style="overflow:auto;">
-    <div class="btn-group d-flex">
-      <%= f.button :button, "Voltar", id: "prevBtn", class: "btn btn-secondary rounded-pill m-2" %>
-      <%= f.button :button, "Avançar", id: "nextBtn", class: "btn btn-primary rounded-pill m-2" %>
+  <%= simple_form_for([@place, @visit], html: { class: "h-100 d-flex flex-column justify-content-between" }) do |f| %>
+    <div class="layout-content">
+      <div class="wizard d-flex flex-column">
+        <!-- One "tab" for each step in the form: -->
+        <div class="tab">
+          <p class="mb-4 h5">
+            <%= @place.address.capitalize %>
+          </p>
+            <%= f.input :state, collection: Visit.states.keys.map { |state| [state.titleize, state] },label: "Desfecho", input_html: { class: "h5 form-control form-control-lg" } %>
+        </div>
+        <div class="tab h5">
+          <%= f.input :focus_quantity, label: "Quantos focos?" %>
+          <%= f.input :eliminated, as: :boolean, label: "Focos foram eliminados?" %>
+          <%= f.input :dengue_last_3m, as: :boolean, label: "Houve diagnóstico de dengue nos últimos três meses?" %>
+        </div>
+      
+        <div class="tab h5">
+            <%= f.input :observations, label: "Observações" %>
+        </div>
+      </div>
     </div>
-  </div>
-
+    <footer class="pb-3">
+      <div class="btn-group d-flex">
+        <%= f.button :button, "Voltar", id: "prevBtn", class: "btn btn-secondary rounded-pill m-2" %>
+        <%= f.button :button, "Avançar", id: "nextBtn", class: "btn btn-primary rounded-pill m-2" %>
+        <%= f.button :button, 'Finalizar', id: "submitBtn", type: :submit, method: "post", class: "btn btn-primary rounded-pill m-2" %>
+      </div>
+      <!-- Circles which indicates the steps of the form: -->
+      <div class="wizard-steps">
+        <div class="text-center mt-2">
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+        </div>
+      </div>
+    </footer>
   <% end %>
-  <!-- Circles which indicates the steps of the form: -->
-  <div class="text-center mt-2">
-    <span class="step"></span>
-    <span class="step"></span>
-    <span class="step"></span>
-  </div>
+  
 </div>
 
 <script>
@@ -74,9 +74,11 @@ function showTab(n) {
   }
   if (n == (tabs.length - 1)) {
     document.getElementById("nextBtn").style.display = "none";
+    document.getElementById("submitBtn").style.display = "inline";
   } else {
     document.getElementById("nextBtn").style.display = "inline";
     document.getElementById("nextBtn").innerHTML = "Avançar";
+    document.getElementById("submitBtn").style.display = "none";
   }
   // ... and run a function that displays the correct step indicator:
   fixStepIndicator(n)

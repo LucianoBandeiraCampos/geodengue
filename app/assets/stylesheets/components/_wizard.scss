@@ -3,6 +3,9 @@
   .tab {
     display: none;
   }
+}
+
+.wizard-steps {
 
   /* Make circles that indicate the steps of the form: */
   .step {
@@ -25,8 +28,6 @@
   .step.finish {
     background-color: #007bff;
   }
-
-  
 }
 
 
