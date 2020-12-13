@@ -17,6 +17,7 @@ class VisitsController < ApplicationController
     @place = Place.find(params[:place_id])
     @visit.place = @place
     @visit.user = current_user
+    @visit.data = Time.now
     if @visit.save
       redirect_to visit_path(@visit)
     else
