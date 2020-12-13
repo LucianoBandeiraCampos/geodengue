@@ -1,10 +1,17 @@
-<h1>VIEW PARA INSERIR UM NOVO PLACE</h1>
+<div class="visits-layout">
+  <header>
+    <h1 class="h5">Informe o endereço desejado</h1>
+  </header>
 
-<%= simple_form_for(@place) do |f| %>
-  <%= f.input :address, label: "Endereço" %>
-  <div class="row ">
-    <div class="col col-12 col-sm-4 d-flex justify-content-center">
-      <%= f.submit 'Submit', class: "btn btn-primary", id: "sweet-alert-bike-success" %>
+  <%= simple_form_for(@place, html: { class: "h-100 d-flex flex-column justify-content-between" }) do |f| %>
+    <div class="layout-content">
+      <%= f.input :address, label: false %>
+      <div>Ou selecione no mapa</div>
+      <p>espaço para o mapa</p>
     </div>
-  </div>
-<% end %>
+    <footer class="mb-2">
+      <%= f.submit 'Salvar', class: "btn btn-primary rounded-pill", id: "sweet-alert-bike-success" %>
+    </footer>
+  <% end %>
+  
+</div>
