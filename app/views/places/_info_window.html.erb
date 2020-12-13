@@ -1,3 +1,3 @@
 <p><%= place.address %></p>
 <p>Desfecho da última visita: <%= place.visits.last.state %></p>
-<%= link_to 'Ver todas as visitas', visits_path %>
+<%= link_to 'Ver todas as visitas', place_path(place.id) %>

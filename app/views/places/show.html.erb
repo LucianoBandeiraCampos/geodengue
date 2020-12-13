@@ -1,0 +1,32 @@
+<p>
+  <%= link_to 'Voltar', places_path %>
+  <br>
+  <strong>Local da Visita:</strong>
+  <%= @place.address %>
+</p>
+<% visitas_do_place = @place.visits %>
+<% contador = 0 %>
+<table class="table table-image">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Situação</th>
+      <th scope="col">Data</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% visitas_do_place.each do |visit| %>
+        <% contador += 1 %>
+        <tr>
+          <th scope="row"><%= "#{contador}" %></th>
+          <td><%= link_to "#{ visit.state }", visit_path(visit.id) %></td>
+          <!-- OBS: FIZ ALGUNS TESTES PRA TENTAR COLOCAR O ICONE DO STATE NA TABELA, MAS PARECE QUE REQUER URL DA WEB VIDE LINK:-->
+          <!-- https://stackoverflow.com/questions/13457710/adding-image-inside-table-cell-in-html -->
+          <!-- O EXEMPLO DA LINHA 26 FALHOU, MAS O DA LINHA 27 (WEB) FUNCIONOU -->
+          <!-- <td><img src="../../assets/images/ausente.svg" class="img-fluid"></td> -->
+          <!-- <td><img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Cute-Ball-Go-icon.png" class="img-fluid"></td> -->
+          <td><%= "#{ visit.data.day }-#{visit.data.month}-#{visit.data.year}" %></td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>

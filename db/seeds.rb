@@ -70,7 +70,7 @@ end
 
 2.times do
   Visit.create!(state: 'visita_recusada', user: oscar, place: end1, data: Time.now)
-  # Visit.create!(state: 'visita_recusada', user: oscar, place: end2, data: Time.now)
+  Visit.create!(state: 'visita_recusada', user: oscar, place: end2, data: Time.now)
   # Visit.create!(state: 'visita_recusada', user: oscar, place: end6, data: Time.now)
   # Visit.create!(state: 'visita_recusada', user: oscar, place: end7, data: Time.now)
   # Visit.create!(state: 'visita_recusada', user: oscar, place: end10, data: Time.now)

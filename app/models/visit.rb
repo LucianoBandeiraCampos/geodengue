@@ -1,7 +1,6 @@
 class Visit < ApplicationRecord
   belongs_to :user
   belongs_to :place
-
   enum state: %w[ausente visita_realizada visita_recusada]
 
   validates :state, presence: true
