@@ -17,6 +17,10 @@ Geocoder.configure(
   # always_raise: [],
 
   # Calculation options
-  units: :km # :km for kilometers or :mi for miles
+  units: :km, # :km for kilometers or :mi for miles
   # distances: :linear          # :spherical or :linear
+
+  # Using Mapbox API
+  lookup: :mapbox, # mapbox has better results
+  api_key: ENV["MAPBOX_API_KEY"]
 )

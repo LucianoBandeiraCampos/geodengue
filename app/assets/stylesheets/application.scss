@@ -13,3 +13,14 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+// Global styles
+html,
+body {
+    height: 100%;
+}
+
+body > main {
+    height: calc(100% - 66px); // full-height minus navbar
+    padding-bottom: 48px; // to ignore "footer" space
+}
