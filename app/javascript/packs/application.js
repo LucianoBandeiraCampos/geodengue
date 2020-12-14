@@ -39,12 +39,14 @@ document.addEventListener('turbolinks:load', () => {
   const mapboxInstance = initMapbox();
 
   // Wait for the user to find and select an address
-  mapboxInstance.geocoder.on('result', (e) => {
-    const result = e.result;
-    if (result && result.place_name) {
-      // update the Form with the full address (place_name)
-      const addressInputEl = document.getElementById('place_address');
-      addressInputEl.value = result.place_name;
-    }
-  })
+  if (mapboxInstance && mapboxInstance.geocoder) {
+    mapboxInstance.geocoder.on('result', (e) => {
+      const result = e.result;
+      if (result && result.place_name) {
+        // update the Form with the full address (place_name)
+        const addressInputEl = document.getElementById('place_address');
+        addressInputEl.value = result.place_name;
+      }
+    })
+  }
 });
