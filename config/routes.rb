@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'dashboard', to: 'pages#dashboard'
 
-  resources :places, only: %i[index new create] do
+  resources :places, only: %i[index show new create] do
     resources :visits, only: %i[new create]
   end
 
