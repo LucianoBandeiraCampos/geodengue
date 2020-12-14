@@ -50,14 +50,12 @@ showTab(currentTab); // Display the current tab
 
 const prevButtonEl = document.getElementById('prevBtn');
 prevButtonEl.addEventListener('click', event => {
-  console.log(event);
   event.preventDefault();
   nextPrev(-1);
 });
 
 const nextButtonEl = document.getElementById('nextBtn');
 nextButtonEl.addEventListener('click', event => {
-  console.log(event);
   event.preventDefault();
   nextPrev(1);
 });

@@ -35,16 +35,28 @@ const fitMapToMarkers = (map, markers) => {
 
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
-  if (mapElement) { // only build a map if there's a div#map to inject into
-    const map = buildMap(mapElement);
-    
-    const markers = JSON.parse(mapElement.dataset.markers);
-    
-    addMarkersToMap(map, markers);
-    fitMapToMarkers(map, markers);
-    map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-      mapboxgl: mapboxgl }));
+  if (!mapElement) {
+    // Only build a map if there's a div#map to inject into
+    return;
   }
+
+  const map = buildMap(mapElement);
+  const markers = JSON.parse(mapElement.dataset.markers);
+  
+  addMarkersToMap(map, markers);
+  fitMapToMarkers(map, markers);
+  
+  // Add Geocoder Plugin to mapbox
+  const geocoder = new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken,
+    mapboxgl: mapboxgl
+  });
+  map.addControl(geocoder);
+  
+  return {
+    map,
+    geocoder // return "geocoder" so we can handle events from it
+  };
 };
 
 export { initMapbox };
