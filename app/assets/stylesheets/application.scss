@@ -24,3 +24,13 @@ body > main {
     height: calc(100% - 66px); // full-height minus navbar
     padding-bottom: 48px; // to ignore "footer" space
 }
+
+.table-image {
+  td, th {
+    vertical-align: middle;
+  }
+}
+
+.pt-4, .py-4 {
+  padding-top: 0.5rem !important;
+}
