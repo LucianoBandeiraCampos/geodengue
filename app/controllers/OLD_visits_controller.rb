@@ -18,31 +18,11 @@ class VisitsController < ApplicationController
     @visit.place = @place
     @visit.user = current_user
     @visit.data = Time.now
-
-    if @visit.state == "visita_recusada" || @visit.state == "ausente"
-      @visit.save
+    if @visit.save
       redirect_to visit_path(@visit)
-    elsif @visit.state == "visita_realizada"
-      @visit.focus_quantity = 0
-      @visit.dengue_last_3m = false
-      if @visit.save
-        redirect_to edit_visit_path(@visit)
-      else
-        render :new
-      end
     else
       render :new
     end
-  end
-
-  def edit
-    @visit = Visit.find(params[:id])
-  end
-
-  def update
-    @visit = Visit.find(params[:id])
-    @visit.update(visit_params)
-    redirect_to visit_path(@visit)
   end
 
   private

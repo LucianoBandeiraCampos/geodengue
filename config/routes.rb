@@ -8,5 +8,5 @@ Rails.application.routes.draw do
     resources :visits, only: %i[new create]
   end
 
-  resources :visits, only: %i[index show]
+  resources :visits, only: %i[index show edit update]
 end
