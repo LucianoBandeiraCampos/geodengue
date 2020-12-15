@@ -6,6 +6,7 @@ class PlacesController < ApplicationController
 
   def show
     @place = Place.find(params[:id])
+    @visitas_do_place = @place.visits.includes(:user)
   end
 
   def new
@@ -27,8 +28,8 @@ class PlacesController < ApplicationController
   private
 
   def get_all_markers(places)
-    @markers = places.geocoded.map do |place|
-      last_visit = place.visits.order("data ASC").last
+    @markers = places.geocoded.includes(:visits).map do |place|
+      last_visit = place.visits.max_by(&:data)
       icon = 'ausente.svg' if last_visit.state == 'ausente'
       icon = 'visita_recusada.svg' if last_visit.state == 'visita_recusada'
       if last_visit.state == 'visita_realizada'
