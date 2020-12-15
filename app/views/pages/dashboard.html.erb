@@ -1,11 +1,12 @@
 <div class="row">
-  <h2>Dashboard</h2>
+  <div class="container">
+  <h5>Dashboard</h5></div>
 </div>
 
 <div class="row">
   <div class="col col-xl-5 col-lg-6">
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-6">
         <div class="card h-100">
           <div class="card-body">
             <h5 class="text-muted font-weight-normal mt-0" title="Número de visitas">Total de Visitas</h5>
@@ -13,7 +14,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-6">
+      <div class="col-6">
         <div class="card h-100">
           <div class="card-body">
             <h5 class="text-muted font-weight-normal mt-0" title="Número de visitas recusadas">Visitas recusadas</h5>
@@ -23,7 +24,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-6">
         <div class="card h-100">
           <div class="card-body">
             <h5 class="text-muted font-weight-normal mt-0" title="Casos de dengue relatados">Casos de dengue</h5>
@@ -31,10 +32,10 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-6">
+      <div class="col-6">
         <div class="card h-100">
           <div class="card-body">
-            <h5 class="text-muted font-weight-normal mt-0" title="Número de visitas recusadas">Locais com foco de dengue</h5>
+            <h5 class="text-muted font-weight-normal mt-0" title="Número de visitas recusadas">Focos de dengue</h5>
             <h3 class="mt-3 mb-3"><%= Visit.where('focus_quantity > 0').count %></h3>
           </div>
         </div>
@@ -42,14 +43,14 @@
     </div>
   </div>
   <div class="col col-xl-7 col-lg-6">
-    <h5>Quantidade de focos de dengue encontrados por semana</h5>
+    <h6 class="mt-1">Focos de dengue por semana</h6>
     <%= line_chart Visit.where('focus_quantity > 0').group_by_week(:data).count, label: "Quantidade de focos", ytitle: "Quantidade de focos", xtitle: "Semana" %>
   </div>
 </div>
 
 <div class="row">
   <div class="col col-lg-8">
-    <h5>Quantidade de pessoas infectadas por semana</h5>
+    <h6>Pessoas infectadas por semana</h6>
     <%= area_chart Visit.where(dengue_last_3m: true).group_by_week(:data).count, label: "Quantidade de focos", ytitle: "Pessoas", xtitle: "Semana" %>
   </div>
   <div class="col col-lg-4">
@@ -57,6 +58,6 @@
   </div>
 </div>
 
-<h5>Quantidade de visitas por semana</h5>
+<h6>Visitas por semana</h6>
 <%= line_chart Visit.group(:state).group_by_week(:data).count, ytitle: "Visitas", xtitle: "Semana"  %>
 
