@@ -38,7 +38,7 @@ puts "20 Places created"
 users = User.all
 places = Place.all
 
-(1..4).each do |i|
+(1..11).each do |i|
   places.each do |place|
     state = ['ausente', 'visita_realizada', 'visita_recusada'].sample
     if state == 'visita_realizada'

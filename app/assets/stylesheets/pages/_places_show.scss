@@ -1,0 +1,19 @@
+// TENTATIVA 1
+// .fixed_header tbody{
+//   display:block;
+//   overflow:auto;
+//   width:100%;
+// }
+// .fixed_header thead tr{
+//   display:block;
+// }
+
+// TENTATIVA 2
+
+.tableFixHead          { overflow-y: auto; height: 100px; }
+.tableFixHead thead th { position: sticky; top: 0; }
+
+/* Just common table stuff. Really. */
+table  { border-collapse: collapse; width: 100%; }
+th, td { padding: 8px 16px; }
+th     { background:#eee; }

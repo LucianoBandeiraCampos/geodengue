@@ -2,7 +2,7 @@ class PlacesController < ApplicationController
   def index
     @places = Place.all
     @markers = @places.geocoded.map do |place|
-      last_visit = place.visits.last
+      last_visit = place.visits.order("data ASC").last
       icon = 'ausente.svg' if last_visit.state == 'ausente'
       icon = 'visita_recusada.svg' if last_visit.state == 'visita_recusada'
       if last_visit.state == 'visita_realizada'
