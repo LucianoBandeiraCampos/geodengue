@@ -21,12 +21,12 @@ class VisitsController < ApplicationController
 
     if @visit.state == "visita_recusada" || @visit.state == "ausente"
       @visit.save
-      redirect_to visit_path(@visit), notice: 'Visita registrada com sucesso'
+      redirect_to edit_visit_path(@visit)
     elsif @visit.state == "visita_realizada"
       @visit.focus_quantity = 0
       @visit.dengue_last_3m = false
       if @visit.save
-        redirect_to edit_visit_path(@visit), notice: 'Visita registrada com sucesso'
+        redirect_to edit_visit_path(@visit)
       else
         render :new, alert: 'Por favor, verifique as informações'
       end
