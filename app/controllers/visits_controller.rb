@@ -5,6 +5,7 @@ class VisitsController < ApplicationController
 
   def show
     @visit = Visit.find(params[:id])
+    @place = @visit.place
   end
 
   def new
