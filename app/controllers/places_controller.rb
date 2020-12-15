@@ -30,6 +30,8 @@ class PlacesController < ApplicationController
   def get_all_markers(places)
     @markers = places.geocoded.includes(:visits).map do |place|
       last_visit = place.visits.max_by(&:data)
+      next unless last_visit
+
       icon = 'ausente.svg' if last_visit.state == 'ausente'
       icon = 'visita_recusada.svg' if last_visit.state == 'visita_recusada'
       if last_visit.state == 'visita_realizada'
