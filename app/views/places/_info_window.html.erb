@@ -1,3 +1,3 @@
 <p><%= place.address %></p>
-<p>Desfecho da última visita: <%= place.visits.last.state.titleize %></p>
+<p>Desfecho da última visita: <%= place.visits.max_by(&:data).state.titleize %></p>
 <%= link_to 'Todas as visitas', place_path(place.id) %> - <%= link_to 'Registrar Nova Visita', new_place_visit_path(place.id) %>

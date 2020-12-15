@@ -13,7 +13,6 @@
 
 <div class="row justify-content-center mt-4 ">
   <div class="col col-12 col-sm-4">
-  <%= link_to 'Registar nova visita', new_place_visit_path(@visit.place.id), class: 'btn btn-primary rounded-pill', type: "button"  %>
-  <%= link_to 'Visualizar minha área', places_path, class: 'btn btn-outline-primary rounded-pill mb-0', type: "button" %>
+  <%= link_to 'Voltar', :back, id: "prevBtn", class: "btn btn-secondary rounded-pill m-2" %>
   </div>
 </div>
