@@ -1,7 +1,33 @@
 class PlacesController < ApplicationController
   def index
     @places = Place.all
-    @markers = @places.geocoded.map do |place|
+    @markers = get_all_markers(@places)
+  end
+
+  def show
+    @place = Place.find(params[:id])
+  end
+
+  def new
+    @place = Place.new
+    @places = Place.all
+    @markers = get_all_markers(@places)
+  end
+
+  def create
+    @place = Place.new(place_params)
+    if @place.valid? # new place that did not exist before
+      @place.save
+    else # the place already exists in the db
+      @place = Place.find_by_address(place_params[:address])
+    end
+    redirect_to new_place_visit_path(@place)
+  end
+
+  private
+
+  def get_all_markers(places)
+    @markers = places.geocoded.map do |place|
       last_visit = place.visits.order("data ASC").last
       icon = 'ausente.svg' if last_visit.state == 'ausente'
       icon = 'visita_recusada.svg' if last_visit.state == 'visita_recusada'
@@ -17,26 +43,6 @@ class PlacesController < ApplicationController
       }
     end
   end
-
-  def show
-    @place = Place.find(params[:id])
-  end
-
-  def new
-    @place = Place.new
-  end
-
-  def create
-    @place = Place.new(place_params)
-    if @place.valid? # new place that did not exist before
-      @place.save
-    else # the place already exists in the db
-      @place = Place.find_by_address(place_params[:address])
-    end
-    redirect_to new_place_visit_path(@place)
-  end
-
-  private
 
   def place_params
     params.require(:place).permit(:address)

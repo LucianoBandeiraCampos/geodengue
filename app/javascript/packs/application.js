@@ -30,11 +30,23 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initMapbox } from '../plugins/init_mapbox';
-import { initAutocomplete } from '../plugins/init_autocomplete';
+// import { initAutocomplete } from '../plugins/init_autocomplete';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  initMapbox();
-  initAutocomplete();
+  // initAutocomplete();
+  const mapboxInstance = initMapbox();
+
+  // Wait for the user to find and select an address
+  if (mapboxInstance && mapboxInstance.geocoder) {
+    mapboxInstance.geocoder.on('result', (e) => {
+      const result = e.result;
+      if (result && result.place_name) {
+        // update the Form with the full address (place_name)
+        const addressInputEl = document.getElementById('place_address');
+        addressInputEl.value = result.place_name;
+      }
+    })
+  }
 });

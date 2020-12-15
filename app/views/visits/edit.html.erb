@@ -1,0 +1,26 @@
+<div class="visits-layout">
+  <header>
+    <h1 class="h3 pb-2 mb-3 border-bottom">Detalhes da Visita</h1>
+  </header>
+
+  <%= simple_form_for(@visit, html: { class: "h-100 d-flex flex-column justify-content-between" }) do |f| %>
+    <div class="layout-content">
+      <div class="d-flex flex-column">
+        <!-- One "tab" for each step in the form: -->
+        <div class="tab">
+          <%= f.input :focus_quantity, label: "Quantos focos?" %>
+          <%= f.input :eliminated, as: :boolean, label: "Focos foram eliminados?" %>
+          <%= f.input :dengue_last_3m, as: :boolean, label: "Houve diagnóstico de dengue nos últimos três meses?" %>
+          <%= f.input :observations, label: "Observações" %>
+        </div>
+      </div>
+    </div>
+    <footer class="pb-3">
+      <div class="btn-group d-flex">
+        <%= f.button :button, 'Finalizar', id: "submitBtn", type: :submit, class: "btn btn-primary rounded-pill m-2" %>
+      </div>
+
+    </footer>
+  <% end %>
+  
+</div>
