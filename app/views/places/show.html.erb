@@ -18,7 +18,7 @@
         <th scope="col" class="text-center">#</th>
         <th scope="col" class="text-center"><div style="width: 80px;">Situação</div></th>
         <th scope="col"><div style="width: 70px;">Data</div></th>
-        <th scope="col"><div style="width: 150px;">Agente</div></th>
+        <th scope="col"><div style="width: 250px;">Agente</div></th>
       </tr>
     </thead>
     <tbody>
@@ -33,7 +33,7 @@
             <th scope="row" class="text-center"><%= "#{contador}" %></th>
             <td class="text-center"><div style="width: 80px;"><%= link_to image_tag(icon, width: "24"), visit_path(visit.id) %></div></td>
             <td><div style="width: 70px;"><%= "#{ visit.data.day }/#{visit.data.month}/#{visit.data.year.to_s[2..3]}" %></div></td>
-            <td><div style="width: 150px;"><%= "#{ visit.user.email }" %></div></td>
+            <td><div style="width: 250px;"><%= "#{ visit.user.first_name } #{ visit.user.last_name }" %></div></td>
           </tr>
         <% end %>
     </tbody>
