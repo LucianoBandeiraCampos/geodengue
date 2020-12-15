@@ -11,9 +11,13 @@
 // TENTATIVA 2
 
 .tableFixHead          { overflow-y: auto; height: 100px; }
-.tableFixHead thead th { position: sticky; top: 0; }
+.tableFixHead thead th { position: sticky; top: 0; border-top: 0px solid; }
 
 /* Just common table stuff. Really. */
 table  { border-collapse: collapse; width: 100%; }
-th, td { padding: 8px 16px; }
+th, td { padding: 8px 16px; border-top: 0px solid;}
 th     { background:#eee; }
+
+.table > th { 
+  border-top: 0px;
+}
