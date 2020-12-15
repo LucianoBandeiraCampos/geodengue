@@ -9,6 +9,10 @@
   padding-left: 40px;
 }
 
+// #eliminado {
+//   color: lightgrey;
+// }
+
 .toggle + label::before {
   content: '';
   display: block;
@@ -38,6 +42,10 @@
   background-color: white;
   border-radius: 50%;
   transition: left 0.2s ease;
+}
+
+#eliminado::checked {
+  color: black;
 }
 
 .toggle:checked + label::after {
