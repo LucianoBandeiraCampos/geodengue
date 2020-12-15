@@ -8,7 +8,6 @@
   <%= @place.address %>
 </div>
 
-<% visitas_do_place = @place.visits %>
 <% contador = 0 %>
 
 <div class="tableFixHead table-responsive" style="height: 490px;">
@@ -24,7 +23,7 @@
       </tr>
     </thead>
     <tbody>
-        <% visitas_do_place.each do |visit| %>
+        <% @visitas_do_place.each do |visit| %>
           <% contador += 1 %>
           <% icon = 'ausente.svg' if visit.state == 'ausente' %>
           <% icon = 'visita_recusada.svg' if visit.state == 'visita_recusada' %>
