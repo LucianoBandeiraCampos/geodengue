@@ -3,9 +3,10 @@
     <%= link_to 'Voltar', places_path, class: "btn btn-secondary btn-sm rounded-pill mr-2" %>
     <%= link_to 'Registrar Nova Visita', new_place_visit_path(@place), class: "btn btn-primary btn-sm rounded-pill" %>
   </div>
-  <br>
-  <strong>Endereço:</strong>
-  <%= @place.address %>
+  <div style="padding: 10px 0px 10px 0px;">
+    <strong>Endereço:</strong>
+    <%= @place.address %>
+  </div>
 </div>
 
 <% contador = 0 %>
@@ -17,8 +18,6 @@
         <th scope="col" class="text-center">#</th>
         <th scope="col" class="text-center"><div style="width: 80px;">Situação</div></th>
         <th scope="col"><div style="width: 70px;">Data</div></th>
-        <th scope="col">Focos</th>
-        <th scope="col"><div style="width: 150px;">Observações</div></th>
         <th scope="col"><div style="width: 150px;">Agente</div></th>
       </tr>
     </thead>
@@ -34,8 +33,6 @@
             <th scope="row" class="text-center"><%= "#{contador}" %></th>
             <td class="text-center"><div style="width: 80px;"><%= link_to image_tag(icon, width: "24"), visit_path(visit.id) %></div></td>
             <td><div style="width: 70px;"><%= "#{ visit.data.day }/#{visit.data.month}/#{visit.data.year.to_s[2..3]}" %></div></td>
-            <td class="text-center"><div style="width: 45px;"><%= "#{ visit.focus_quantity }" %></div></td>
-            <td><div style="width: 150px;"><%= "#{ visit.observations }" %></div></td>
             <td><div style="width: 150px;"><%= "#{ visit.user.email }" %></div></td>
           </tr>
         <% end %>
