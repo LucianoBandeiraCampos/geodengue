@@ -8,6 +8,6 @@
   </div>
   <%= simple_form_for(@place, html: { class: "h-100 d-flex flex-column justify-content-between" }) do |f| %>
     <%= f.input :address, :as => :hidden, label: false, html: { id: "place_address" }, input_html: { readonly: :true } %>
-    <%= f.submit 'Salvar', class: "btn btn-primary rounded-pill", id: "sweet-alert-bike-success" %>
+    <%= f.submit 'Continuar', class: "btn btn-primary rounded-pill" %>
   <% end %>
 </div>
