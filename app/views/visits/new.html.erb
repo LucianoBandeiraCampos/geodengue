@@ -11,7 +11,17 @@
           <p class="mb-4 h5">
             <%= @place.address.capitalize %>
           </p>
-            <%= f.input :state, collection: Visit.states.keys.map { |state| [state.titleize, state] },label: "Desfecho", input_html: { class: "h5 form-control form-control-lg" } %>
+        </div>
+        <div>
+          <%= f.input :state, 
+          collection: Visit.states.keys.map { |state| [state.titleize, state] }, 
+          as: :radio_buttons, 
+          collection_wrapper_tag: 'div',
+          collection_wrapper_class: 'd-flex flex-column category-wrapper',
+          item_wrapper_class: 'btn btn-outline-primary rounded-pill mt-3 category-item',
+          input_html: {class: 'category-selector'},
+          label: "Desfecho"
+          %>
         </div>
       </div>
     </div>
