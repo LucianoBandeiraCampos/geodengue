@@ -15,9 +15,9 @@
 
 /* Just common table stuff. Really. */
 table  { border-collapse: collapse; width: 100%; }
-th, td { padding: 8px 16px; border-top: 0px solid;}
+th, td { padding: 8px 16px; border-top: 0px solid; vertical-align: middle !important;}
 th     { background:#eee; }
 
 .table > th { 
-  border-top: 0px;
+  border-top: 0px !important;
 }
