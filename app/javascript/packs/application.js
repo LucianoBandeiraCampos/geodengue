@@ -31,13 +31,15 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import { initMapbox } from '../plugins/init_mapbox';
 // import { initAutocomplete } from '../plugins/init_autocomplete';
+import { toggleButton } from '../components/toggle_button';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   // initAutocomplete();
+  toggleButton();
   const mapboxInstance = initMapbox();
-
+  
   // Wait for the user to find and select an address
   if (mapboxInstance && mapboxInstance.geocoder) {
     mapboxInstance.geocoder.on('result', (e) => {

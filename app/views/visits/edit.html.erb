@@ -6,12 +6,18 @@
   <%= simple_form_for(@visit, html: { class: "h-100 d-flex flex-column justify-content-between" }) do |f| %>
     <div class="layout-content">
       <div class="d-flex flex-column">
-        <!-- One "tab" for each step in the form: -->
         <div class="tab">
-          <%= f.input :focus_quantity, label: "Quantos focos?" %>
-          <%= f.input :eliminated, as: :boolean, label: "Focos foram eliminados?" %>
-          <%= f.input :dengue_last_3m, as: :boolean, label: "Houve diagnóstico de dengue nos últimos três meses?" %>
-          <%= f.input :observations, label: "Observações" %>
+          <% if @visit.state == "visita_recusada" || @visit.state == "ausente" %>
+            <%= f.input :observations, label: 'Observações', :as => :text, :input_html => {:rows => 8}, class: "form-control" %>
+
+          <% elsif @visit.state == "visita_realizada" %>
+            <%= f.input :focus_quantity, label: "Quantos focos?", input_html: { id: "focos" } %>
+            <% disabled = @visit.focus_quantity == 0 %>
+            
+            <%= f.input :eliminated, as: :boolean, disabled: disabled, label: "Focos eliminados?", input_html: { class: "toggle", id: "eliminado" } %>
+            <%= f.input :dengue_last_3m, as: :boolean, label: "Houve diagnóstico de dengue nos últimos três meses?", input_html: { class: "toggle" } %>
+            <%= f.input :observations, label: 'Observações:', :as => :text, :input_html => {:rows => 4}, class: "form-control" %>
+          <% end %>
         </div>
       </div>
     </div>
