@@ -6,7 +6,7 @@ class PlacesController < ApplicationController
 
   def show
     @place = Place.find(params[:id])
-    @visitas_do_place = @place.visits.includes(:user)
+    @visitas_do_place = @place.visits.includes(:user).order('data DESC')
   end
 
   def new
