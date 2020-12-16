@@ -42,9 +42,14 @@ const initMapbox = () => {
 
   const map = buildMap(mapElement);
   const markers = JSON.parse(mapElement.dataset.markers);
+  // Excludes places without visit markers
+  const filteredMarkers = markers.filter(function (el) {
+    return el !=null;
+  });
+  console.log(markers);
   
-  addMarkersToMap(map, markers);
-  fitMapToMarkers(map, markers);
+  addMarkersToMap(map, filteredMarkers);
+  fitMapToMarkers(map, filteredMarkers);
   
   // Add Geocoder Plugin to mapbox
   const geocoder = new MapboxGeocoder({
