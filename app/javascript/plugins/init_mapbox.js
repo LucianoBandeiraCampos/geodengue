@@ -5,7 +5,9 @@ const buildMap = (mapElement) => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v10'
+    style: 'mapbox://styles/mapbox/streets-v10',
+    center: [-54.603801, -20.48572],
+    zoom: 15
   });
 };
 
@@ -49,7 +51,7 @@ const initMapbox = () => {
   console.log(markers);
   
   addMarkersToMap(map, filteredMarkers);
-  fitMapToMarkers(map, filteredMarkers);
+  // fitMapToMarkers(map, filteredMarkers);
   
   // Add Geocoder Plugin to mapbox
   const geocoder = new MapboxGeocoder({
