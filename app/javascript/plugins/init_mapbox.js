@@ -48,7 +48,6 @@ const initMapbox = () => {
   const filteredMarkers = markers.filter(function (el) {
     return el !=null;
   });
-  console.log(markers);
   
   addMarkersToMap(map, filteredMarkers);
   // fitMapToMarkers(map, filteredMarkers);
