@@ -1,11 +1,22 @@
 <div class="d-block">
   <h1 class="h5 border-bottom"></h1>
-  <p><strong>Número da visita: </strong><%= "#{@visit.id} "%>
+  <p>
+  <strong>Número da visita: </strong><%= "#{@visit.id} "%>
   - <strong>Data: </strong><%= "#{@visit.data.day}/#{@visit.data.month}/#{@visit.data.year.to_s[2..3]}" %>  
   </p>
-  <p><strong>Nome do Agente: </strong><%= "#{ @visit.user.first_name } #{ @visit.user.last_name }" %></p>
-  <p><strong>Endereço: </strong><%= @visit.place.address %></p>
-  <p><strong>Desfecho: </strong><%= @visit.state.titleize %></p>
+  <p>
+    <strong>Nome do Agente: </strong>
+    <%= "#{ @visit.user.first_name } #{ @visit.user.last_name }" %>
+  </p>
+  <p>
+    <strong>Endereço: </strong>
+    <%= @visit.place.address %>
+  </p>
+  <p>
+    <strong>Desfecho: </strong>
+    <%= "#{@visit.state.titleize}" %>
+    <span class="tab"><%= image_tag @icon, width: 24 %></span>
+  </p>
   <% if @visit.state == 'visita_realizada' %>
     <p><strong>Quantidade de focos: </strong><%= @visit.focus_quantity %></p>
     <p><strong>Focos Eliminados? </strong><%= @visit.eliminated ? 'Sim' : 'Não' %></p>
