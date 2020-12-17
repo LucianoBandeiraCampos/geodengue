@@ -5,7 +5,12 @@ const buildMap = (mapElement) => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v10',
+    // style: 'mapbox://styles/mapbox/streets-v10',   // mapa normal
+    // style: 'mapbox://styles/rafasart/ckisvnauh1ca019npe1cetlur',  // ruas verde turquesa
+    // style: 'mapbox://styles/rafasart/ckisuvwxt1bl319oc8rxexjzm',  // ruas laranjas
+    // style: 'mapbox://styles/rafasart/ckisw627m0tyi19qun3liekfm',   // quarteirões laranja
+    style: 'mapbox://styles/rafasart/ckiswqkp41cyy19nnmdxcb5k4',  // quarteirões verde
+
     center: [-54.603801, -20.48572],
     zoom: 15
   });
