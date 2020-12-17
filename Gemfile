@@ -67,3 +67,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #gemas para os gráficos
 gem 'chartkick'
 gem 'groupdate'
+
+#add photo
+gem 'cloudinary', '~> 1.16.0'

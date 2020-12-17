@@ -5,9 +5,13 @@ Place.destroy_all
 
 puts "all users, places and visits destroyed"
 
-User.create!(first_name: 'Bruna', last_name: 'Guedes', email: "bruna@gmail.com", password: 123_456)
+bruna_photo = "https://res.cloudinary.com/dmlp4ttuf/image/upload/v1608227347/geodengue/avatar_ai9xp4.png"
+oscar_photo = "https://res.cloudinary.com/dmlp4ttuf/image/upload/v1608227350/geodengue/oscar_vvgxv6.jpg"
+bruna = User.create!(first_name: 'Bruna', last_name: 'Guedes', email: "bruna@gmail.com", password: 123_456)
+bruna.photo.attach(io: URI.open(bruna_photo), filename: File.basename(URI.parse(bruna_photo).path))
+oscar = User.create!(first_name: 'Oscar', last_name: 'Junior', email: "oscar@gmail.com", password: 123_456)
+oscar.photo.attach(io: URI.open(oscar_photo), filename: File.basename(URI.parse(oscar_photo).path))
 User.create!(first_name: 'Rafaela', last_name: 'Sartori', email: "rafa@gmail.com", password: 123_456)
-User.create!(first_name: 'Oscar', last_name: 'Junior', email: "oscar@gmail.com", password: 123_456)
 User.create!(first_name: 'Luciano', last_name: 'Campos', email: "luciano@gmail.com", password: 123_456)
 
 puts "4 users created"

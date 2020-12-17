@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :visits
   has_many :places, through: :visits
+  has_one_attached :photo
 end
