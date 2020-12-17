@@ -1,6 +1,12 @@
-<p><%= place.address %></p>
-<% last_visit = place.visits.max_by(&:data) %>
+<div>
+  <% address_components = place.address.split(',') %>
+  <p><%= address_components[0] %></p>
+  <% last_visit = place.visits.max_by(&:data) %>
+  <p> <%= last_visit.state.titleize %> - <%= "#{ last_visit.data.day }/#{last_visit.data.month}/#{last_visit.data.year.to_s[2..3]}" %></p>
+</div>
 
-<p>Desfecho da última visita: <%= last_visit.state.titleize %> - Data: <%= "#{ last_visit.data.day }/#{last_visit.data.month}/#{last_visit.data.year.to_s[2..3]}" %></p>
-<%= link_to 'Todas as visitas', place_path(place.id) %> - <%= link_to 'Registrar Nova Visita', new_place_visit_path(place.id) %>
+<div class="d-flex flex-column">
+  <%= link_to 'Todas as visitas', place_path(place.id), class: "mb-2" %>
+  <%= link_to 'Registrar Nova Visita', new_place_visit_path(place.id) %>
+</div>
 
