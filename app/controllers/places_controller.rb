@@ -17,12 +17,18 @@ class PlacesController < ApplicationController
 
   def create
     @place = Place.new(place_params)
-    if @place.valid? # new place that did not exist before
-      @place.save
-    else # the place already exists in the db
+
+    if Place.find_by_address(place_params[:address])
       @place = Place.find_by_address(place_params[:address])
+      redirect_to new_place_visit_path(@place)
+    else
+      if @place.valid? # new place that did not exist before
+        @place.save
+        redirect_to new_place_visit_path(@place)
+      else
+        redirect_to new_place_path, alert: 'Favor informar endereço'
+      end
     end
-    redirect_to new_place_visit_path(@place)
   end
 
   private
