@@ -1,6 +1,6 @@
 <div class="visits-layout">
   <header>
-    <h1 class="h3 pb-2 mb-3 border-bottom">Registrar Visita</h1>
+    <h1 class="h3 pb-2 mb-3 border-bottom">Registrando Visita</h1>
   </header>
 
   <%= simple_form_for([@place, @visit], html: { class: "h-100 d-flex flex-column justify-content-between" }) do |f| %>
@@ -13,14 +13,14 @@
           </p>
         </div>
         <div>
-          <%= f.input :state, 
+          <%= f.input :state,
           collection: Visit.states.keys.map { |state| [state.titleize, state] }, 
           as: :radio_buttons, 
           collection_wrapper_tag: 'div',
           collection_wrapper_class: 'd-flex flex-column category-wrapper',
           item_wrapper_class: 'btn btn-outline-primary rounded-pill mt-3 category-item',
           input_html: {class: 'category-selector'},
-          label: "Desfecho"
+          label: "Desfecho da visita:"
           %>
         </div>
       </div>
