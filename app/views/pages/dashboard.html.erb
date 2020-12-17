@@ -1,15 +1,15 @@
 <div class="row">
   <div class="container">
-  <h5>Dashboard</h5></div>
+  <h2 class="mt-2 mb-2">Dashboard</h2></div>
 </div>
 
-<div class="row">
+<div class="row mt-2">
   <div class="col col-xl-5 col-lg-6">
-    <div class="row">
+    <div class="row mb-2">
       <div class="col-6">
         <div class="card h-100">
           <div class="card-body">
-            <h5 class="text-muted font-weight-normal mt-0" title="Número de visitas">Total de Visitas</h5>
+            <h5 class="text-muted font-weight-normal mt-0" title="Número de visitas">Total de<br/> Visitas</h5>
             <h3 class="mt-3 mb-3"><%= Visit.count %></h3>
           </div>
         </div>
@@ -23,7 +23,7 @@
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row mb-2">
       <div class="col-6">
         <div class="card h-100">
           <div class="card-body">
@@ -43,21 +43,37 @@
     </div>
   </div>
   <div class="col col-xl-7 col-lg-6">
-    <h6 class="mt-1">Focos de dengue por semana</h6>
-    <%= line_chart Visit.where('focus_quantity > 0').group_by_week(:data).count, label: "Quantidade de focos", ytitle: "Quantidade de focos", xtitle: "Semana" %>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="text-muted font-weight-normal mt-1">Focos de dengue por semana</h5>
+        <%= line_chart Visit.where('focus_quantity > 0').group_by_week(:data).count, label: "Quantidade de focos", ytitle: "Quantidade de focos", xtitle: "Semana" %>
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="row">
-  <div class="col col-lg-8">
-    <h6>Pessoas infectadas por semana</h6>
-    <%= area_chart Visit.where(dengue_last_3m: true).group_by_week(:data).count, label: "Quantidade de focos", ytitle: "Pessoas", xtitle: "Semana" %>
+<div class="row mt-2">
+  <div class="col col-lg-8 mb-2">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="text-muted font-weight-normal mt-1">Pessoas infectadas por semana</h5>
+        <%= area_chart Visit.where(dengue_last_3m: true).group_by_week(:data).count, label: "Quantidade de focos", ytitle: "Pessoas", xtitle: "Semana" %>
+      </div>
+    </div>
   </div>
-  <div class="col col-lg-4">
-    <%= pie_chart Visit.group(:state).count, donut: true %>
+  <div class="col col-lg-4  mb-2">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="text-muted font-weight-normal mt-1">Visitas realizadas</h5>
+        <%= pie_chart Visit.group(:state).count, donut: true %>
+      </div>
+    </div>
   </div>
 </div>
-
-<h6>Visitas por semana</h6>
-<%= line_chart Visit.group(:state).group_by_week(:data).count, ytitle: "Visitas", xtitle: "Semana"  %>
+<div class="card">
+  <div class="card-body">
+    <h5 class="text-muted font-weight-normal mt-1">Visitas realizadas por semana</h5>
+    <%= line_chart Visit.group(:state).group_by_week(:data).count, ytitle: "Visitas", xtitle: "Semana"  %>
+  </div>
+</div>
 
