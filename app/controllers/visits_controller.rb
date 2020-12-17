@@ -5,6 +5,11 @@ class VisitsController < ApplicationController
 
   def show
     @visit = Visit.find(params[:id])
+    @icon = 'ausente.svg' if @visit.state == 'ausente'
+    @icon = 'visita_recusada.svg' if @visit.state == 'visita_recusada'
+    if @visit.state == 'visita_realizada'
+      @visit.focus_quantity.positive? ? @icon = 'mosquito.svg' : @icon = 'check.svg'
+    end
   end
 
   def new
